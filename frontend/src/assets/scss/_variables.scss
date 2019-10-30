@@ -1,0 +1,54 @@
+/*@import "./_fonts.scss";*/
+
+$main-color: #db4863;
+$main: #000000;
+$PARH_RESOURCE: '/static/';
+
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$max-desktop-width: 1040px;
+$content-width: 1200px;
+$max-content-width: 1440px;
+
+@mixin mobile {
+	@media (max-width: #{$tablet-width - 1px}) {
+		@content;
+	}
+}
+@mixin tablet {
+	@media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+		@content;
+	}
+}
+@mixin desktop {
+	@media (min-width: #{$desktop-width}) {
+		@content;
+	}
+}
+/*
+@mixin hover-active-element ($opacity: $hover-opacity) {
+	transition: $main-transition;
+	&:not(:disabled):hover {
+		opacity: $opacity;
+		cursor: pointer;
+	}
+	&:not(:disabled):active {
+		opacity: $opacity;
+		cursor: pointer;
+	}
+}
+@mixin link {
+	color: $text-color;
+	cursor: pointer;
+	transition: $main-transition;
+	text-decoration: none;
+	&:hover {
+		color: $main-color;
+	}
+	&:active {
+		color: $second-color;
+		cursor: pointer
+	}
+}
+*/
+

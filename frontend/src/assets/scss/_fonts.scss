@@ -1,0 +1,16 @@
+@import "_variables.scss";
+$src-open-sans: $PARH_RESOURCE +'fonts/openSans/open-sans.ttf';
+$src-summernote: $PARH_RESOURCE +'fonts/summernote/summernote.ttf';
+
+@font-face {
+    font-family: 'Open Sans'; 
+    src: url($src-open-sans);
+}
+@mixin open-sans {
+	font-family: 'Open Sans', sans-serif;
+}
+@font-face {
+    font-family: 'summernote'; 
+    src: url($src-summernote);
+}
+

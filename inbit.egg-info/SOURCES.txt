@@ -1,0 +1,6 @@
+inbit.egg-info/PKG-INFO
+inbit.egg-info/SOURCES.txt
+inbit.egg-info/dependency_links.txt
+inbit.egg-info/not-zip-safe
+inbit.egg-info/requires.txt
+inbit.egg-info/top_level.txt

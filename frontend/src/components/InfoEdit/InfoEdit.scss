@@ -1,0 +1,12 @@
+@import "../../assets/scss/_variables.scss";
+.info {
+    &__text {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        &__concealed {
+            display: none;
+        }
+    }
+}

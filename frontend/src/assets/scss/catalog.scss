@@ -1,0 +1,74 @@
+@import "_variables.scss";
+@import "_fonts.scss";
+$srcImgBig: $PARH_RESOURCE +'img/laptop-with-webex_md2x.jpg';
+$srcImgSmall: $PARH_RESOURCE +'img/laptop-with-webex_xs.jpg';
+.catalog-header {
+	background-image: url($srcImgBig);
+	background-size: cover!important;
+    background-position: 50% 50%;
+    z-index: 0;
+
+    @include tablet {
+        background-image: url($srcImgSmall);
+    }
+    @include mobile {
+       background-image: url($srcImgBig);
+    }
+    &__faded {
+    	background-color: rgba(51,51,51,.7);
+    	display: -webkit-flex; /* Safari */
+ 		display: flex;
+        -webkit-flex-direction: column;
+ 		flex-direction: column;
+    }
+    h1 {
+    	color: #fff;
+    	font-size: 52px;
+    	padding: 36px 0 48px;
+    	font-weight: 600;
+    	text-align: left;
+    	margin-bottom: 0px;
+    	padding-bottom: 40px;
+    	margin-left: 20px;
+    	@include tablet {
+	    	font-size: 32px;
+	    }
+	    @include mobile {
+	    	font-size: 19px;
+	    }
+    }
+    &__text {
+    	color: #fff;
+    	font-size: 15px;
+    	font-weight: 200;
+    	text-align: left;
+    	margin-left: 20px;
+    	padding-bottom: 40px;
+    	@include tablet {
+	    	font-size: 15px;
+	    }
+	    @include mobile {
+	    	font-size: 15px;
+	    }
+    }
+    &__phone {
+    	color: #fff;
+    	font-weight: 600;
+    	margin: auto 0;
+    	margin-left: 10px;
+    }
+    &__contacts {
+    	display: -webkit-flex; /* Safari */
+ 		display: flex;
+        -webkit-flex-direction: row;
+ 		flex-direction: row;
+ 		margin-left: 20px;
+ 		padding-bottom: 40px;
+ 		align-content: center;
+ 		@include mobile {
+	    	-webkit-flex-direction: column;
+ 			flex-direction: column;
+ 			max-width: 200px;
+	    }
+    }
+}
