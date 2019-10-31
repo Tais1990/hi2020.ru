@@ -72,7 +72,6 @@ class SiteHandler:
     # -------------------------------------------   API   ----------------
     # генерация уникальных кодов
     async def getNewCode(self, request: web.Request) -> Dict[str, str]:
-        print('getNewCode')
         typeInfo = request.match_info['typeInfo']
         strCode = typeInfo
         #number = len(manager.coursesSelectAll()) + 1 
@@ -81,7 +80,6 @@ class SiteHandler:
             number = len(manager.locationSelectAll()) + 1
         else: 
             number = len(manager.itemSelectAllByType(typeInfo)) + 1
-        print(number)
         index =  0
         while (manager.codeIsExist(typeInfo, strCode + str(number))) and (index < 100):            
             number = number + 1 

@@ -1,0 +1,15 @@
+@import "../../assets/scss/_variables.scss";
+.horizontal-navigational-bar {
+    border-top: 1px solid rgb(231, 231, 231); 
+        
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+
+    @include mobile {
+        justify-content: flex-start;
+    }
+}

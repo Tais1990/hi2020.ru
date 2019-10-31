@@ -5,6 +5,7 @@ import ReactDOM from "react-dom";
 
 import List from './components/List/List.jsx';
 import Header from './components/Header/Header.jsx';
+import HorizontalNavigationalBar from './components/HorizontalNavigationalBar/HorizontalNavigationalBar.jsx';
 
 if (document.getElementById("type").value != null && document.getElementById("type").value != ''
 	&& (document.getElementById("type").value === 'news' || document.getElementById("type").value === 'info'))
@@ -14,6 +15,7 @@ if (document.getElementById("type").value != null && document.getElementById("ty
 	ReactDOM.render(
 		<div> 
 			<Header/>   
+			<HorizontalNavigationalBar/>
 			<List title = {title} type = {document.getElementById("type").value}/>
 		</div>,
 		document.getElementById("root")

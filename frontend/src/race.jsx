@@ -5,6 +5,7 @@ import ReactDOM from "react-dom";
 
 import RaceInfo from './components/RaceInfo/RaceInfo.jsx';
 import Header from './components/Header/Header.jsx';
+import HorizontalNavigationalBar from './components/HorizontalNavigationalBar/HorizontalNavigationalBar.jsx';
 
 if (document.getElementById("raceCode").value != null && document.getElementById("raceCode").value != '')
 {
@@ -12,6 +13,7 @@ if (document.getElementById("raceCode").value != null && document.getElementById
 	ReactDOM.render(
 		<div> 
 			<Header/>   
+			<HorizontalNavigationalBar/>
 			<RaceInfo code = {document.getElementById("raceCode").value}/>
 		</div>,
 		document.getElementById("root")
