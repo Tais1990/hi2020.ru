@@ -6,7 +6,6 @@ from views import SiteHandler
 
 PROJECT_PATH = pathlib.Path(__file__).parent
 
-#http://fil-andrey.blogspot.com/2015/12/aiohttp-http-client.html
 def init_routes(app: web.Application, handler: SiteHandler) -> None:
     add_route = app.router.add_route
     # главная страница

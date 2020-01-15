@@ -1,0 +1,46 @@
+@import "../../assets/scss/_variables.scss";
+.vertical-navigational-bar {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    width: 25%;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top:  20px;
+    margin-bottom: 20px;
+    @include mobile {
+        display: none;
+    }
+	&__title {
+        font-size: 18px;
+        line-height: 20px;
+        padding: 15px 5px 15px 10px;
+        color: #999;
+        background-color: #edeaea;
+        font-weight: 600;
+        text-decoration: none;
+        &:hover {
+            color: #0092ac;
+        };
+    }
+    &__records {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+    }
+    &__record {
+        text-decoration: none;
+        color: #0092ac;
+        background-color: #edeaea;
+        padding: 5px 5px 5px 10px;
+        font-weight: 600;
+        &:hover {
+            background-color: #fff;
+        };
+        &_isActive {
+            background-color: #fff;
+        }
+    }
+}

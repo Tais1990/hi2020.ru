@@ -7,6 +7,10 @@ class Race {
 	@observable locations = [];	
 	@observable isLoadLocation = false;
 
+	// визуализация;
+	@observable locationsOpen = [];
+	@observable locationsOpenCount = 0;
+
 	constructor() {
 		this.fetchAction(this);
 	}	
@@ -76,13 +80,41 @@ class Race {
 				
 				this.locations.filter(location => location.raceID == race.id)
 					.forEach(location => 
-						result.push({"name" : location.name, "description" : location.description, "code": location.code})
+						result.push({
+							"name" : location.name, 
+							"description" : location.description, 
+							"code": location.code, 
+							"link": `#${location.code}`})
 					) 
 					
 				return result;	
 			}		
 		}
 		return result;
+	}
+	// ------------------------ ВИЗУАЛИЗАЦИЯ ----------------------------
+	// добавляем данную локацию в список открытых
+	addLocationsToOpen(locationCode)
+	{
+		if (!this.locationsOpen.includes(locationCode))
+		{
+			this.locationsOpen.push(locationCode);
+			this.locationsOpenCount = this.locationsOpenCount + 1;
+		}
+	}
+	// изменение типа открытости указанной локации
+	changeLocationsToOpen(locationCode)
+	{
+		if (!this.locationsOpen.includes(locationCode))
+		{
+			this.locationsOpen.push(locationCode);
+			this.locationsOpenCount = this.locationsOpenCount + 1;
+		}
+		else
+		{
+			this.locationsOpen.splice(this.locationsOpen.indexOf(locationCode), 1); 
+			this.locationsOpenCount = this.locationsOpenCount - 1;
+		}
 	}
 }
 

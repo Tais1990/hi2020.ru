@@ -25,7 +25,12 @@ class RaceInfo extends React.Component {
                 <div>{isLoadRace && race && race.name}</div>
                 <div>{isLoadRace && race && race.description}</div>
                 {
-                    locations.map (location => <Info title = {location.name} text = {location.description} key = {location.code}/>)
+                    locations.map (location => 
+                        <Info 
+                            title = {location.name} 
+                            text = {location.description} 
+                            key = {location.code} 
+                            code = {location.code}/>)
                 }
             </div>
         )
