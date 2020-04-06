@@ -5,12 +5,6 @@ def main(args: Any = None) -> None:
     manager.raceAndLocationCreateTables()
     manager.itemCreateTables()
 
-    #manager.coursesCreateTable()
-    #manager.outboxCreateTable()
-
-#def migration1(args: Any = None) -> None:
-#    manager.coursesAddColumn();
-
 if __name__ == '__main__':
     main()
     migrations.migrationFillingRaceAndLocation()

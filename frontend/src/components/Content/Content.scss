@@ -1,0 +1,39 @@
+@import "../../assets/scss/_variables.scss";
+.content {
+	&__container {
+	    display: -webkit-flex; /* Safari */
+	 	display: flex;
+	    -webkit-flex-direction: row;
+	 	flex-direction: row;
+	 	margin: 0 auto;
+		width: 90%;
+		justify-content:space-between;
+		@include tablet {
+			width: 750px;
+		}
+		@include mobile {
+			width: 90%;
+		}	
+	 	/*
+	 	@include tablet {
+        background-image: url($srcImgSmall);
+    }
+    @include mobile {
+       background-image: url($srcImgBig);
+    }
+	 	*/
+	 	&__menu {
+			flex-basis: 15%;
+			@include tablet {
+				width: 25%;
+			}
+		}
+		&__content {
+			flex-basis: 70%;
+			@include tablet {
+				width: 50%;
+			}
+		}
+	}
+
+}

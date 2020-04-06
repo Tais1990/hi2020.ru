@@ -2,13 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import styles from './HorizontalNavigationalBar.scss';
 var menu = [
-    {
+    /*{
         text: "Форум",
         link: "/"
     }, {
         text: "JOIN",
         link: "/"
-    }, {
+    },*/ {
         text: "Орг. информсация",
         link: "/info"
     }, 
