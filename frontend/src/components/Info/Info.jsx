@@ -29,12 +29,17 @@ class Info extends React.Component {
         }
     }
     render() {
-        let {title, text, code} = this.props; 
+        let {title, text, code, type} = this.props; 
         // список открытых записей
         let openLocation = RaceStore.locationsOpen;  
         // используется для того, чтобы срабатывало, при изменении данных сторе
         let flag = RaceStore.locationsOpenCount;  
-        this.forceOpenInfo(openLocation)  
+        // если работаем по локациям и рассам - то наобходимо использовать forceOpenInfo,
+        // т.к. в структуре есть переход по якорю, в отличии от орг информации и новостей
+        if (type == 'location')
+        {
+            this.forceOpenInfo(openLocation) 
+        } 
         return ( 
             <div className = 'info'>
                 <p><a  name = {code}/></p>               
@@ -47,6 +52,7 @@ class Info extends React.Component {
 Info.propTypes = {   
     title: PropTypes.string,
     text: PropTypes.string,
-    code: PropTypes.string
+    code: PropTypes.string,
+    type: PropTypes.string
 };
 export default Info;

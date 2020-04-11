@@ -23,7 +23,13 @@ class List extends React.Component {
         return ( 
             <div>
                 <div>{title}</div>
-                <div>{list && list.map (record => <Info title = {record.name} text = {record.description} key = {record.code}/>) }</div>
+                <div>{list && list.map (record => 
+                    <Info 
+                        title = {record.name} 
+                        text = {record.description} 
+                        key = {record.code}
+                        type = {type}/>
+                ) }</div>
             </div>
         )
     }

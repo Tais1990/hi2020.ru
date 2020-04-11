@@ -30,7 +30,8 @@ class RaceInfo extends React.Component {
                             title = {location.name} 
                             text = {location.description} 
                             key = {location.code} 
-                            code = {location.code}/>)
+                            code = {location.code}
+                            type = 'location'/>)
                 }
             </div>
         )
