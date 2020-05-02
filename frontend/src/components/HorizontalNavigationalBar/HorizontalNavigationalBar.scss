@@ -7,9 +7,10 @@
     -webkit-flex-direction: row;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-end;
-
+    justify-content: space-between;
+/*
     @include mobile {
         justify-content: flex-start;
     }
+    */
 }

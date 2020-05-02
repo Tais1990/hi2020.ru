@@ -20,6 +20,8 @@ module.exports = {
 		race: `${PATHS.src}/race.jsx`,
 		infoEdit: `${PATHS.src}/infoEdit.jsx`,
 		info: `${PATHS.src}/info.jsx`,
+		admin: `${PATHS.src}/admin.jsx`,
+		login: `${PATHS.src}/login.jsx`,
 		/*
 		course: `${PATHS.src}/course.jsx`,
 		courseEdit: `${PATHS.src}/courseEdit.jsx`,
@@ -120,6 +122,18 @@ module.exports = {
 			filename: 'info.html',
 			inject: false,
 			chunks: ['info', 'vendors']
+		}),
+		new HtmlWebpackPlugin({
+			template: `${PATHS.src}/admin.html`,
+			filename: 'admin.html',
+			inject: false,
+			chunks: ['admin', 'vendors']
+		}),
+		new HtmlWebpackPlugin({
+			template: `${PATHS.src}/login.html`,
+			filename: 'login.html',
+			inject: false,
+			chunks: ['login', 'vendors']
 		}),/*
 		new HtmlWebpackPlugin({
 			template: `${PATHS.src}/courseEdit.html`,

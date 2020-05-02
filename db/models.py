@@ -40,4 +40,13 @@ class Item(BaseModel):
 	description = TextField()
 	type = CharField(max_length=1000)
 
+# таблица пользователей
+class User(BaseModel):
+    id = PrimaryKeyField(null=False)
+    login = CharField(max_length=1000)
+    email = CharField(max_length=1000)
+    password = CharField(max_length=1000)
+    isAdmin = BooleanField(default=False)
+    name = CharField(max_length=1000)
+
     

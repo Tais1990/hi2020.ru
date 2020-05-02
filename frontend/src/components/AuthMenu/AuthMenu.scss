@@ -1,0 +1,14 @@
+@import "../../assets/scss/_variables.scss";
+.auth-menu {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+	&__elem {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}

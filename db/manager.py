@@ -219,3 +219,50 @@ def itemEdit(code, name, order, description):
     item.description = description;
     item.order = order;   
     item.save()
+
+
+# ------------------------------------ АДМИНКА --------------------------------
+
+
+
+# ------------------------------------ АВТОРИЗАЦИЯ --------------------------------
+# создание таблица с логинами и паролями
+def userCreateTable():
+    try:
+        #dbhandle.connect()
+        User.create_table();
+        return 1
+    except peewee.InternalError as px:
+        print(str(px))
+        return 0
+# проверка на существование заданного логина и пароля
+def auth(login, password):
+    try:        
+        userRequest = User.select().where(User.login == login).limit(1)
+        if bool(userRequest):
+            user = userRequest.get();
+            if (user.password == password):
+                return {
+                    'id': user.id,
+                    'login': user.login,
+                    'email': user.email,
+                    'isAdmin': user.isAdmin,
+                    'name': user.name
+                };
+            else:
+                return None;
+        else:
+            return None;
+    except peewee.InternalError as px:
+        print(str(px))
+        return None
+# Добавление записи в таблицу пользовтаелей
+def userAdd(login, email, password, isAdmin, name):
+    row = User(
+        login = login,
+        email = email,
+        password = password,
+        isAdmin = isAdmin,
+        name = name
+    )
+    row.save()

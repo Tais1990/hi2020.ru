@@ -113,7 +113,6 @@ class InfoEdit extends React.Component {
                 complexState[name] = defaultNullValue;
             }) 
         }
-        console.log(this.props.type);
         this.state = complexState;
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);

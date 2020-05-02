@@ -6,6 +6,7 @@ def main(args: Any = None) -> None:
     manager.itemCreateTables()
 
 if __name__ == '__main__':
-    main()
-    migrations.migrationFillingRaceAndLocation()
-    migrations.migrationFillingItem()
+    #main()
+    #migrations.migrationFillingRaceAndLocation()
+    #migrations.migrationFillingItem()
+    #migrations.migrationUser()

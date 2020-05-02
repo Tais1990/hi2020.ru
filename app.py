@@ -30,8 +30,8 @@ async def init_app(conf: Config) -> web.Application:
     init_jinja2(app)
     handler = SiteHandler(conf, executor)
     init_routes(app, handler)
-    # типо добавление сессий
-    aiohttp_session.setup(app, aiohttp_session.SimpleCookieStorage())
+    # добавление сессий
+    aiohttp_session.setup(app, aiohttp_session.SimpleCookieStorage(max_age=2629743)) # месяц
     return app
 
 

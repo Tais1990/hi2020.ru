@@ -21,4 +21,9 @@ def migrationFillingItem(args: Any = None) -> None:
     manager.itemAdd('news1', 'Новость 1', 2, 'Формулировка новости 1', 'news');
     manager.itemAdd('news2', 'Новость 2', 0, 'Формулировка новости 2', 'news');
     manager.itemAdd('info1', 'Информация', 1, 'Описание правил', 'info');
+
+def migrationUser(args: Any = None) -> None:
+    manager.userCreateTable();
+    manager.userAdd('admin', 'admin@mail.ru', 'admin', True, 'Администратор')
+    manager.userAdd('1', '1@mail.ru', '1', False, 'Обычный пользователь')
     

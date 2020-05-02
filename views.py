@@ -11,6 +11,7 @@ from utils import Config
 from db import manager
 
 import aiohttp_session
+from aiohttp_session import get_session
     
 import json
 
@@ -45,6 +46,10 @@ class SiteHandler:
        return {
             'type': 'news'
             }
+    # страница логина    
+    @aiohttp_jinja2.template('login.html')
+    async def login(self, request: web.Request) -> Dict[str, str]:
+        return {}
 
 
 
@@ -66,6 +71,10 @@ class SiteHandler:
             'infoCode': '',
             'typeInfo': request.match_info['typeInfo']
             }
+    # главная страница админки  
+    @aiohttp_jinja2.template('admin.html')
+    async def admin(self, request: web.Request) -> Dict[str, str]:
+        return {}
 
 
 
@@ -185,5 +194,74 @@ class SiteHandler:
             return web.Response(
                 status=500,
                 headers=headersClientPermission)
+
+    # авторизация пользователя в вситеме
+    async def auth(self, request: web.Request) -> web.Response:
+        headers = {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': 'http://localhost:8081'
+        }
+        session = await get_session(request);
+        #user_id = session.get('user_id')
+        session["user_id"] = None;
+        session["data"] = {};
+        try:
+            form = await request.json()
+            user = manager.auth(form.get('login'), form.get('password'));
+            if (user):                
+                session["user_id"] = user['id'];
+                session["data"] = user;
+                return web.Response(status=200, headers=headers)
+            else:
+                return web.Response(status=401, headers=headers)           
+        except Exception:
+            print('Неопознанная ошибка')
+            return web.Response(
+                status=500,
+                headers=headersClientPermission) 
+
+    # данные о том залогинен ли текущий пользователь
+    async def authMe(self, request: web.Request) -> Dict[str, str]:
+        headers = {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': 'http://localhost:8081'
+        }     
+        session = await get_session(request)
+        user_id = session.get('user_id')
+        user = session.get('data')        
+        try:          
+            #typeValue = request.rel_url.query['type']
+            #res = manager.itemSelectAllByType(typeValue)
+            res = {};
+            if (user_id):
+                res["resultCode"] = 1;
+                res["data"] = user;
+                return web.json_response(res, status = 200, headers=headersClientPermission)
+            else:
+                res["resultCode"] = 0; 
+                res["data"] = {};
+                res["message"] = "You are not authorized"        
+                return web.json_response(res, status = 401, headers=headersClientPermission)
+        except Exception:
+            print('Неопознааная ошибка')
+            return web.Response(
+                status=500,
+                headers=headersClientPermission) 
+
+    async def logout(self, request: web.Request) -> web.Response:
+        headers = {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': 'http://localhost:8081'
+        } 
+        try: 
+            session = await get_session(request);
+            session.invalidate();
+            return web.Response(status = 200, headers=headersClientPermission);
+        except Exception:
+            print('Неопознааная ошибка')
+            return web.Response(
+                status=500,
+                headers=headersClientPermission) 
+
 
     
