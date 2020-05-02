@@ -2,3 +2,6 @@
 
 /frontend/'~
 /frontend/dist
+/static/css
+/static/js
+/db/__pycache__
